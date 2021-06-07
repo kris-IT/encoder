@@ -1,7 +1,7 @@
 # encoder
 encoding and decoding The Bacon Cipher
 
-Цель работы: Разработана программа шифрования и дешифрования текста.
+## Что умеет: умеет шифровать и дешифровать текст.
 
 Здесь используется шифр Бэкона. Шифр Бэкона является шифром замены, который можно представить в виде двоичного кода, где A = 0, B = 1. 
 Используется алфавитный метод. Для кодирования сообщений Фрэнсис Бэкон предложил каждую букву текста заменять на группу из пяти символов «A» или «B» (так как последовательностью из пяти двоичных символов можно закодировать 25 = 32 символа, что достаточно для шифрования 26 букв английского алфавита).
@@ -27,19 +27,6 @@ if cryptMode not in ['E','D']:
     print("Error: mode is not Found!"); raise SystemExit
 ## Сообщение для шифрования/дешифрования
 startMessage = input("Write the message: ").upper()
-## Функция регулярного выражения, помогающая дешифровывать сообщение
+## Есть функция регулярного выражения, помогающая дешифровывать сообщение
 
-def regular(text):
-      template = r"[A-Z]{5}"
-      return findall(template, text)
-def encryptDecrypt(mode, message, final = ""):
-      if mode == 'E': 
-            for symbol in message:
-                  if symbol in keysBacon: final += keysBacon[symbol] 
-      else:
-            for symbolsFive in regular(message): 
-                  for key in keysBacon: 
-                        if symbolsFive == keysBacon[key]: final += key 
-      return final 
-print("Final message:",encryptDecrypt(cryptMode, startMessage))
 
